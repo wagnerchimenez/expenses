@@ -1,0 +1,20 @@
+services:
+
+  expenses:
+    container_name: expenses
+    platform: linux/amd64
+    build: ./docker/images/flutter
+    volumes:
+      - ./projects/expenses:/expenses
+    working_dir: /expenses
+    tty: true
+    ports:
+      - 80:80
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - expenses-network
+
+networks:
+  expenses-network:
+    driver: bridge
