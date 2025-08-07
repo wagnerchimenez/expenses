@@ -8,7 +8,7 @@ class TransactionForm extends StatelessWidget {
 
   TransactionForm({super.key, required this.onSubmit});
 
-  _submitForm() {
+  void _submitForm() {
     final title = titleController.text;
     final value = double.tryParse(valueController.text) ?? 0.0;
 
