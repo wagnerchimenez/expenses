@@ -8,11 +8,26 @@ import 'package:flutter/material.dart';
 void main() => runApp(ExpensesApp());
 
 class ExpensesApp extends StatelessWidget {
-  const ExpensesApp({super.key});
+  ExpensesApp({super.key});
+  final ThemeData theme = ThemeData();
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: MyHomePage());
+    return MaterialApp(
+      home: MyHomePage(),
+      theme: ThemeData(
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.purple,
+          foregroundColor: Colors.white,
+        ),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.amber,
+          primary: Colors.purple,
+          secondary: Colors.amber,
+        ),
+        fontFamily: 'Playwrite',
+      ),
+    );
   }
 }
 
@@ -173,7 +188,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Text('Gráfico'),
               ),
             ),
-            TransactionList(_transactions),
+            TransactionList(transactions: _transactions),
           ],
         ),
       ),
