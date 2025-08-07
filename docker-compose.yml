@@ -8,8 +8,6 @@ services:
       - ./projects/expenses:/expenses
     working_dir: /expenses
     tty: true
-    ports:
-      - 80:80
     extra_hosts:
       - "host.docker.internal:host-gateway"
     networks:
