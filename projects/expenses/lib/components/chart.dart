@@ -20,10 +20,16 @@ class Chart extends StatelessWidget {
     }).reversed.toList();
   }
 
-  double get _weekTotalValue {
-    return groupedTransactions.fold(0.0, (sum, transaction) {
+  double _weekPercentageValue(double transactionValue) {
+    double total = groupedTransactions.fold(0.0, (sum, transaction) {
       return sum + (transaction['value'] as double);
     });
+
+    if (total > 0) {
+      return transactionValue / total;
+    }
+
+    return 0.0;
   }
 
   @override
@@ -41,7 +47,9 @@ class Chart extends StatelessWidget {
               child: ChartBar(
                 label: transaction['day'].toString(),
                 value: (transaction['value'] as double),
-                percentage: (transaction['value'] as double) / _weekTotalValue,
+                percentage: _weekPercentageValue(
+                  transaction['value'] as double,
+                ),
               ),
             );
           }).toList(),

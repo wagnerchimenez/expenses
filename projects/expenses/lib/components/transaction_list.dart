@@ -4,8 +4,13 @@ import 'package:intl/intl.dart';
 
 class TransactionList extends StatelessWidget {
   final List<Transaction> transactions;
+  final void Function(String) onRemove;
 
-  const TransactionList({super.key, required this.transactions});
+  const TransactionList({
+    super.key,
+    required this.transactions,
+    required this.onRemove,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -48,52 +53,13 @@ class TransactionList extends StatelessWidget {
                     subtitle: Text(
                       DateFormat('d MMM y').format(transaction.date),
                     ),
+                    trailing: IconButton(
+                      onPressed: () => onRemove(transaction.id),
+                      icon: Icon(Icons.delete),
+                      color: Colors.red,
+                    ),
                   ),
                 );
-
-                // return Card(
-                //   child: Row(
-                //     children: [
-                //       Container(
-                //         margin: EdgeInsets.symmetric(
-                //           horizontal: 15,
-                //           vertical: 10,
-                //         ),
-                //         decoration: BoxDecoration(
-                //           border: Border.all(
-                //             color: Theme.of(context).colorScheme.primary,
-                //             width: 2,
-                //           ),
-                //         ),
-                //         padding: EdgeInsets.all(10),
-                //         child: Text(
-                //           'R\$ ${transaction.value.toStringAsFixed(2)}',
-                //           style: TextStyle(
-                //             fontWeight: FontWeight.bold,
-                //             fontSize: 20,
-                //             color: Theme.of(context).colorScheme.primary,
-                //           ),
-                //         ),
-                //       ),
-                //       Column(
-                //         crossAxisAlignment: CrossAxisAlignment.start,
-                //         children: [
-                //           Text(
-                //             transaction.title,
-                //             style: TextStyle(
-                //               fontSize: 16,
-                //               fontWeight: FontWeight.bold,
-                //             ),
-                //           ),
-                //           Text(
-                //             DateFormat('dd/MM/yyyy').format(transaction.date),
-                //             style: TextStyle(color: Colors.grey),
-                //           ),
-                //         ],
-                //       ),
-                //     ],
-                //   ),
-                // );
               },
             ),
     );
