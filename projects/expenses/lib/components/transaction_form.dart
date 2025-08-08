@@ -62,15 +62,17 @@ class _TransactionFormState extends State<TransactionForm> {
               controller: _valueController,
               keyboardType: TextInputType.numberWithOptions(decimal: true),
               onSubmitted: (_) => _submitForm(),
-              decoration: InputDecoration(labelText: 'Valor R\$s'),
+              decoration: InputDecoration(labelText: 'Valor R\$'),
             ),
             SizedBox(
               height: 70,
               child: Row(
                 children: [
-                  Text(DateFormat('d/M/y').format(_selectedDate)),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
+                  Expanded(
+                    child: Text(DateFormat('d/M/y').format(_selectedDate)),
+                  ),
+                  TextButton(
+                    style: TextButton.styleFrom(
                       textStyle: const TextStyle(fontWeight: FontWeight.bold),
                     ),
                     onPressed: _showDatePicker,
@@ -82,9 +84,8 @@ class _TransactionFormState extends State<TransactionForm> {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
-                TextButton(
+                FilledButton(
                   onPressed: _submitForm,
-                  style: TextButton.styleFrom(foregroundColor: Colors.purple),
                   child: Text('Nova Transação'),
                 ),
               ],

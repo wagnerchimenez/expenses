@@ -21,12 +21,12 @@ class ExpensesApp extends StatelessWidget {
           backgroundColor: Colors.purple,
           foregroundColor: Colors.white,
         ),
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.amber,
-          primary: Colors.purple,
-          secondary: Colors.amber,
-        ),
-        fontFamily: 'Playwrite',
+        // colorScheme: ColorScheme.fromSeed(
+        //   seedColor: Colors.amber,
+        //   primary: Colors.purple,
+        //   secondary: Colors.amber,
+        // ),
+        // fontFamily: 'Playwrite',
       ),
     );
   }

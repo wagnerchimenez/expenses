@@ -25,7 +25,14 @@ class TransactionList extends StatelessWidget {
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
                 SizedBox(height: 20),
-                Image.asset('assets/images/nothing.png', fit: BoxFit.cover),
+                Expanded(
+                  child: Center(
+                    child: Image.asset(
+                      'assets/images/transaction.png',
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
               ],
             )
           : ListView.builder(
@@ -40,7 +47,7 @@ class TransactionList extends StatelessWidget {
                     leading: CircleAvatar(
                       radius: 30,
                       child: Padding(
-                        padding: const EdgeInsets.all(6),
+                        padding: const EdgeInsets.all(10),
                         child: FittedBox(
                           child: Text('R\$${transaction.value}'),
                         ),
