@@ -57,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
       id: Random().nextDouble().toString(),
       title: title,
       value: value,
-      date: DateTime.now(),
+      date: date,
     );
 
     setState(() {
