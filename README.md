@@ -18,3 +18,6 @@ flutter run -d web-server --web-port=80 --web-hostname=0.0.0.0
 
 Acessar URL
 - [http://localhost](http://localhost)
+
+https://github.com/user-attachments/assets/6b8ae1d1-4379-4497-a4ce-49636622f7c0
+
